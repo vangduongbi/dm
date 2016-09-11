@@ -1,49 +1,102 @@
 *{
-	padding:0;
-	margin: 0;
+  padding:0;
+  margin: 0;
 }
-.container{
-	margin: 50px auto;
-	width:960px;
-	
+
+body{
+
+
+}
+/*.container{
+  margin: 50px auto;
+  width:960px;
+
+}*/
+.wrapper{
+  width:1050px;
+  margin: 0 auto;
+}
+
+.picture{
+position: absolute;
+  width: 1050px;
+  margin: 0 auto;
+
+ 
+}
+
+.picture img{
+
+
 }
 .form{
-  width: 400px;
-  margin: 0 auto;
-  border: 1px #000 solid;
-  padding:70px;
-  background: #f2f2f2;
+  width: 450px;
+  margin: 50px 70px auto;
+ border: 2px solid #73AD21;
+  padding:50px 60px;
+ /* background: #87bdd8;*/
+ background: #fff;
+  opacity: 0.7;
   height:auto;
-  border-radius: 10px;
+  border-radius: 60px;
   
    position: absolute;
-  margin-left: 90px;
+ 
+
+   box-shadow: 5px 5px 8px #888888;
 }
 
 label p{
   font-size: 18px;
-  padding:10px;
+  position: relative;
+  top: -20px;
+  left: 15px;
   display:block;
   margin-bottom:10px;
   text-align: center;
-  font-weight: bold;
+ 
+    color: #32CD32
   
 }
 
 input[type="file"]{
-  content: Browse;
-  margin: 20px 0 20px 0;
+
+padding: 10px 10px;
+margin: 0 0 0px 0;
 }
 
 input[type="submit"]
 {
   padding:10px 20px;
   position: relative;
-  left: 110px;
+  left: 5px;
   margin: 20px 0 0 0;
   cursor: pointer;
+
+
+}
+input[type="email"]{
+  
+  margin:20px 0px 12px -5px;
+ padding:3px 24px;
+
+}
+
+#myCarousel{
+
+  position: absolute;
+   width: 100%;
  
 }
+.carousel-inner img.black {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%);  make all photos black and white 
+      width: 100%; /* Set width to 100% */
+
+      margin: auto;
+  }
+
+
 
 
 
@@ -58,20 +111,10 @@ input[type="submit"]
 
 }
 
-.spam{
-
-  padding: 20px;
-  border-radius: 5px;
-  color:#a94442;
-  background: #f2dede;
-  border-color:#ebccd1;
-  width:600px;
-  margin: 30px auto;
-
-}
 
 
-.new{
+
+.form-container{
   width:600px;
   margin:0 auto;
 
@@ -88,6 +131,31 @@ input[type="submit"]
   position:absolute;
 }
 
+/* footer------------------------ */
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  
+  background-color: #2f2f2f;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
 
 
 
@@ -145,6 +213,29 @@ input[type="submit"]
    border-top: 1 solid #000;
    
 }
+
+@media (max-width: 750px) {
+    .form {
+       width:
+       380px;
+       height: 400px;
+      position: relative;
+      left: -110px;
+      bottom:80px;
+      
+    }
+  
+  }
+
+
+@media (max-height: 800px) {
+    .footer{
+      display: none;
+    }
+  
+  }
+
+
 
 /* Add Animation */
 @-webkit-keyframes slideIn {

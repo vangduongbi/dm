@@ -1,44 +1,14 @@
-
-<head> <link rel="stylesheet" href="../resources\css\style.css"> </head>
-
-    <?php 
+<?php 
     session_start();
      date_default_timezone_set('Asia/Ho_Chi_Minh');
    
     if(!isset($_SESSION['id'])){
       $_SESSION['id']=0;
     }
-        require_once "recaptchalib.php";
-            // your secret key
-                    $secret = "6LcQVCkTAAAAAM_dCKD3I1SaddnyQM8InzkZOkeC";
-             
-            // empty response
-            $response = null;
-             
-            // check secret key
-            $reCaptcha = new ReCaptcha($secret);
-    ?>
-
-    <?php  
-// if submitted check response
-if ($_POST["g-recaptcha-response"]) {
-    $response = $reCaptcha->verifyResponse(
-        $_SERVER["REMOTE_ADDR"],
-        $_POST["g-recaptcha-response"]
-    );
-}
-?>
 
 
-<?php
-if ($response != null && $response->success) {
-   // echo "Hi " . $_POST["name"] . " (" . $_POST["email"] . "), thanks for submitting the form!";
 
-    //set time zone Viet Nam
-    
-
-  //Khai bao thu muc
-     $rid='../resources/user_info/';
+    $rid='../resources/user_info/';
        
       $s='/';
 
@@ -46,7 +16,7 @@ if ($response != null && $response->success) {
             // Desired folder structure
            
       //$i++;
-                   $date_style=date("Y-m-d").date("-h-i-sa");
+                $date_style=date("Y-m-d").date("-h-i-sa");
  $create= $rid.$date_style;
         //
           
@@ -58,7 +28,7 @@ if ($response != null && $response->success) {
                    mkdir($create, 0777, true);
 
                     
-                     session_destroy();
+                     //session_destroy();
                 }
 
                
@@ -77,9 +47,12 @@ if ($response != null && $response->success) {
                      $create= $rid.$date_style.$id.$i;
                       $directory = $rid.$date_style.$id.$i.$s;
                         mkdir($create, 0777, true);
-                  $target_dir = "$directory";
+                 
                 }
- $target_dir = "$directory";
+           
+
+             //$path='../resources/user_info/';
+                $target_dir = "$directory";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
@@ -96,7 +69,7 @@ if(isset($_POST["submit"])) {
          <?php
         $uploadOk = 1;
      } else {
-     //  header('location: ../index.php?case=error');;
+       header('location: ../index1.php?case=error');;
         $uploadOk = 0;
      }
 }
@@ -114,17 +87,13 @@ if(isset($_POST["submit"])) {
  if($imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG"
  && $imageFileType != "GIF" && $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
  && $imageFileType != "gif" ) {
-     $email=$_POST['email'];
-  $email=urlencode($email);
-   header("location: ../index.php?email=$email");
+      header('location: ../index1.php?case=error');
     $uploadOk = 0;
      }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-   $email=$_POST['email'];
-  $email=urlencode($email);
-   header("location: ../index.php?email=$email");
 
+      header('location: ../index1.php?case=error');
  
 // if everything is ok, try to upload file
 } else {
@@ -140,61 +109,8 @@ fclose($fp);
 ?>
 <?php 
 //printf("<script>location.href='../index.php?case=a'</script>");
-header('location: ../index.php?case=ok');?>
-$_SESSION['tb']=$_POST['email'];
-
-
-<?php
-    //    $newname=date("Y-m-d") . date("-h-i-sa");
-        ?>
-
-
-
-<?php
-      //  $oldname= basename( $_FILES["fileToUpload"]["name"]);
-      //  rename("../resources/images/$oldname", "../resources/images/$newname.$imageFileType");
-
-     
-           
-            // To create the nested structure, the $recursive parameter 
-            // to mkdir() must be specified.
-
-           // if (!is_dir ($directory)) { 
-   
-      //}
-
-            // ...
-            
-
-
-    } else {
-       $email=$_POST['email'];
-  $email=urlencode($email);
-   header("location: ../index.php?email=$email");
-
-       //rmdir($rid.date("Y-m-d").date("-h-i-sa"));
-     
-     
-    }
+header('Location: ../index1.php?case=success');
 }
-        
- } else {
-  $email=$_POST['email'];
-  $email=urlencode($email);
-   header("location: ../index.php?email=$email");
-    ?>
 
-    
-<?php
-  //header('location: ../index.php?case=b');
- // header("location:../index.php?case=b");
-
-   // rmdir($rid.date("Y-m-d").date("-h-i-sa"));
- 
-    ?>
-   
-
-<?php 
 }
- 
- ?>
+?>
